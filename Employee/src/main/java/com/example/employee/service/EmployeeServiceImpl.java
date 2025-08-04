@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -32,7 +33,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee getEmployee(int id) {
-        return (Employee) eRepo.findById(id).get();
+        Optional emp= eRepo.findById(id);
+        if(emp.isPresent()){
+            Object obj=emp.isPresent() ?emp.get():null;
+            Employee emp1=null;
+            if(obj instanceof Employee){
+                emp1=(Employee)obj;
+                return emp1;
+            }
+        }
+        return null;
     }
 
     @Override
