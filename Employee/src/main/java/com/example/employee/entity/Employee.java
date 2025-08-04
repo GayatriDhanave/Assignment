@@ -4,20 +4,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
 @Entity
+@Data
 public class Employee {
     @Id
             @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int eid;
-    String name;
-    short age;
-    char gender;
-    String address;
-    long salary;
-    float bonus;
-    byte availableLeaves;
-    
+    private int eid;
+    private String name;
+    private short age;
+    private char gender;
+    private String address;
+    private long salary;
+    private float bonus;
+    private byte availableLeaves;
+
 
 
 }
