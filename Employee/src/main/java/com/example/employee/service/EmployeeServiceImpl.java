@@ -14,7 +14,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     EmployeeRepository eRepo;
 
-    static List<Employee> empList=new ArrayList<>();
+    final List<Employee> empList=new ArrayList<>();
+    static int count =0;
 
 
     @Override
@@ -50,5 +51,19 @@ public class EmployeeServiceImpl implements EmployeeService {
             }
         }
         return empList;
+    }
+
+    @Override
+    public int getCount() {
+
+        long limit=25000;
+        List<Employee> employeeList=eRepo.findAll();
+        for( Employee emp:employeeList){
+            if(emp.getSalary()>limit){
+                count++;
+            }
+        }
+        return count;
+
     }
 }

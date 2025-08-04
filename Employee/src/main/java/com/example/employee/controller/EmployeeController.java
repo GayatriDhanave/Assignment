@@ -44,4 +44,10 @@ public class EmployeeController {
             return empList;}
         return null;
     }
+
+    @GetMapping("/getCountOfEmployees")
+    public int getCountOfEmployees(){
+        int count=employeeService.getCount();
+        return count;
+    }
 }

@@ -12,4 +12,6 @@ public interface EmployeeService {
     Employee getEmployee(int id);
     List<Employee> getAllEmployees();
     List<Employee> getEmployeeSalaryabovelimit();
+    int getCount();
+
 }
