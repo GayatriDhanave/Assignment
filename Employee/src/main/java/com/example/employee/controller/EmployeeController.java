@@ -5,6 +5,8 @@ import com.example.employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class EmployeeController {
 
@@ -19,9 +21,27 @@ public class EmployeeController {
     }
 
     @GetMapping("/viewEmployee/{id}")
-    public Employee viewEmployee(@RequestParam int id){
+    public Employee viewEmployee(@PathVariable int id){
         Employee emp1 =employeeService.getEmployee(id);
         if(emp1!=null){return emp1;}
+        return null;
+    }
+
+    @GetMapping("/viewAllEmployee")
+    public List<Employee> viewAllEmployee(){
+        List<Employee> empList =employeeService.getAllEmployees();
+        if(empList!=null){
+            for(Employee emp:empList){ System.out.println(emp);}
+            return empList;}
+        return null;
+    }
+
+    @GetMapping("/getEmployees")
+    public List<Employee> getEmployees(){
+        List<Employee> empList =employeeService.getEmployeeSalaryabovelimit();
+        if(empList!=null){
+            for(Employee emp:empList){ System.out.println(emp);}
+            return empList;}
         return null;
     }
 }
