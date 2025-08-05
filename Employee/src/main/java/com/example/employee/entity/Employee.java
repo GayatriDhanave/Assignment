@@ -21,4 +21,5 @@ public class Employee {
     private float bonus;
     private byte availableLeaves;
 
+
 }
