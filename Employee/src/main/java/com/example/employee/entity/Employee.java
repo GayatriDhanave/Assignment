@@ -9,10 +9,10 @@ import lombok.Data;
 @Entity
 @Data
 public class Employee {
-    @Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//            @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private int eid;
+    private final int eid;
     private String name;
     private short age;
     private char gender;

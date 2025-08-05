@@ -15,12 +15,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     EmployeeRepository eRepo;
 
-    final List<Employee> empList=new ArrayList<>();
+    final List<Employee> empList=new ArrayList<>(); //upcasting
+    ArrayList<Employee> emp=(ArrayList<Employee>) new Object() ;//downcasting
     static int count =0;
+    int i=10;
 
 
     @Override
     public Employee addEmployee(Employee emp) {
+        Integer a=i;
         try {
            eRepo.save(emp);
            return emp;
