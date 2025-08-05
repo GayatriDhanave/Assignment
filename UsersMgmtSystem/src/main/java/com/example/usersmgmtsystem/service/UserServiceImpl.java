@@ -18,7 +18,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public Users addUser(Users user) {
         try{
-//
+
+            Pattern
             String email=user.getEmailid();
             Matcher matcher = emailPattern.matcher(email);
             userRepository.save(user);
