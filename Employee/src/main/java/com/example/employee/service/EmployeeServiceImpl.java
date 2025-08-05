@@ -25,6 +25,9 @@ public class EmployeeServiceImpl implements EmployeeService {
            eRepo.save(emp);
            return emp;
         }catch (InputMismatchException e){
+            short age= emp.getAge();
+            emp.setAge(age);
+            System.out.println(age);
             throw new InputMismatchException();
 
 
@@ -35,7 +38,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee getEmployee(int id) {
         Optional emp= eRepo.findById(id);
         if(emp.isPresent()){
-            Object obj=emp.isPresent() ?emp.get():null;
+            Object obj=emp.isPresent() ?emp.get():null;//->if empis present then get em or else assign null
             Employee emp1=null;
             if(obj instanceof Employee){
                 emp1=(Employee)obj;
