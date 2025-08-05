@@ -18,12 +18,13 @@ public class UserServiceImpl implements UserService {
     Pattern emailPattern = Pattern.compile("^[a-zA-Z0-9._+-]+@[a-zA-Z]+\\.[a-zA-Z]{2,}$");
     Pattern passwordPattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%_])[a-zA-Z0-9@#$%_]{8,}$");
 
-    @Override
+
     public boolean addUser(Users user) throws Exception {
         try {
 //
             String email = user.getEmailid();
             String password = user.getPassword();
+
             Matcher matcher = emailPattern.matcher(email);
             Matcher matcher2 = passwordPattern.matcher(password);
             if (matcher.matches() && matcher2.matches()) {
